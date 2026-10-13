@@ -257,10 +257,12 @@ function parseH(text){
   let t=text.replace(/\/\/\s*(FRAME|TILE)\s*\d*[^\n]*/gi,(m,k)=>' @'+k[0].toUpperCase()+' ');
   t=t.replace(/\/\*[\s\S]*?\*\//g,' ').replace(/\/\/[^\n]*/g,' ');
   const out=[];
-  const re=/((?:\b(?:static|const|PROGMEM|unsigned|char|uint8_t|byte|int8_t)\b\s*)+)(\w+)\s*\[\s*[\w+\-*\s]*\]\s*(?:PROGMEM\s*)?=\s*\{/g;
+  const al=[];t.replace(/^[ \t]*#\s*define[ \t]+(\w+)[ \t]+([^\n]*)/gm,(m,n,v)=>{if(/\b(char|uint8_t|byte|int8_t)\b/.test(v))al.push(n);return m;});
+  const re=new RegExp('((?:\\b(?:static|const|PROGMEM|unsigned|char|uint8_t|byte|int8_t'+al.map(x=>'|'+x).join('')+')\\b\\s*)+)(\\w+)\\s*\\[\\s*[\\w+\\-*\\s]*\\]\\s*(?:PROGMEM\\s*)?=\\s*\\{','g');
+  const reOld=/((?:\b(?:static|const|PROGMEM|unsigned|char|uint8_t|byte|int8_t)\b\s*)+)(\w+)\s*\[\s*[\w+\-*\s]*\]\s*(?:PROGMEM\s*)?=\s*\{/g;
   let m;
   while((m=re.exec(t))){
-    if(!/\b(char|uint8_t|byte|int8_t)\b/.test(m[1]))continue;
+    if(!new RegExp('\\b(char|uint8_t|byte|int8_t'+al.map(x=>'|'+x).join('')+')\\b').test(m[1]))continue;
     let i=re.lastIndex,depth=1,j=i;
     while(j<t.length&&depth>0){const c=t[j++];if(c==='{')depth++;else if(c==='}')depth--;}
     const body=t.slice(i,j-1);re.lastIndex=j;
