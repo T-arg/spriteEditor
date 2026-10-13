@@ -1,4 +1,4 @@
-# ATMlib Sprite Editor
+# Sprite Editor
 
 A browser-based sprite, tile and image editor for the Arduboy by TEAM a.r.g.
 It merges the three old converters (image, tile and sprite) into one and lets you draw as well.

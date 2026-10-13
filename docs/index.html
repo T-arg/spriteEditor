@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ATMlib Sprite Editor</title><link rel="icon" href="favicon.ico" sizes="any"><link rel="shortcut icon" href="favicon.ico">
+<title>Sprite Editor</title><link rel="icon" href="favicon.ico" sizes="any"><link rel="shortcut icon" href="favicon.ico">
 <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet" />
 <style>:root{--bg:#fefefd;--panel:#f5f5f3;--ink:#333;--muted:#6b5f5e;--accent:#4a3b3a;--warn:#c0392b;--yellow:#f4d35e;--line:#ddd}
 *{box-sizing:border-box}
@@ -98,7 +98,7 @@ a.manual:hover{background:#e8c443}
 <body>
 <header>
   <a class="site-logo" href="https://t-arg.github.io/" title="TEAM a.r.g." target="_blank" rel="noopener noreferrer"><img src="data:image/gif;base64,R0lGODlheQAuAMIFAEc8Okg8OUY9Nk5BPv7+/P///////////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5BAEKAAcALAAAAAB5AC4AAAP+eHrRHivKSau9OOudA/kf4HBkaZ5PCnEe6DrDKc/z0LpfEG83DqrAxo5GNNk+tkduiOklB74oTheswipJq5CSvSqOBHDux7T0WjCptKeO6iTJ9uu9EJMP4Dz0XKacpw8DXYFyhXR4bIUEh4lLLWINi1N9En9hUIBrSFoqmItfTlaeizF5aZJhjR6Cd2Yve6o4rDqoiks5iCBxakJkjze0m7qeHr24ri9twTlopLY/uDd2ysGRtbdiT2OLwILeOw5Tco2oy4q0VMLPzrqJ6T/h13MPCsU4AIMpAFL428/Fj/b5+KYJWhSBLkQY9BGpGKJp8v75wyGgokUBY6w16jL+ioy6dRPn2LDBgBtDkAbNwUshyF6qgSpcsCoHciY5ew0Y7Hp1aV01W+EAMgQyZwzEcc3cjMzZ0I1JnyF5WXspa+rNeCifDpUEQchUeMy+AopHzg0adw3fwTxqi61XkgA7ivjmDaEsb2jsUvu4UslBrFnL4uyapSqQjn3RIA7rV2HWTWJBkptLZQFAYFrWYL3KUi1Kv48jQua2AJ+xVEDm8tv8zLRZ0DAD6I3KSzOVFfVEnA3CjTNYoJFjvlZV9qRZESIipOhNFHDR38DHwp5H3J3T4TmVB+XNbHYOux4AeL+eODIB3Y3Q34uFfYKSKiuZPTe6mLkD9ETlM8YeP1P+e/foISebPOHMtBBXux2Wj3A92cfJfvKZx41ufsDHxnYQMsbJdvnpt6EVw4imYQWylShgdeLFlOCDCN6X4gMvarHPgwMKJiCJ8A1loYYf2lfeh5dlJqJ9OHKnY3M8inLEckkK1xyQto1QSYp03YddGsg5qANdg1xioJaBrJiWV1S0NF1f7kUyI2bBWRgJlwseKROceM35zSp7tMSNmebRU0lYjOkpHSFbFhfaY+OBIB6fR1ZSTGG3pTgojIvECOSlmLJ4Hj47LUGSZUFyqF+TsPAYJTVnUscgczsJYYef9Ty1HIMs1XlbGUFol6ujuxaJGwOmYQaJH6TAkA6DVQbN1YWuQIBaBbPNkvjErwzcBl1X9JiyCjN4GXpMmlbUE8ggzm65LIkvVBAsQ8Cet4K2jkDXxqe8unpuCqBIGUgd3iDzLQUC5BMDTnUIhAk+JT1aBXgVSlltdviKSwesGwwgEMIo/BABJOBo7O8n4Gb38AoRVzsErCpY8EQNXtTRchaUuLxEw0Hs0G3JeJgp8ZZF9HzCyjRHqx259VLs89E915rFyNUiMgI9uRqN9NQsoMxUNO8+jXXKaFDtNQl08VvKFoKI7XQpcJ79tQQJAAA7" alt="TEAM a.r.g."></a>
-  <h1>ATMlib Sprite Editor <span style="color:#6b5f5e;font-weight:500">v1.0.0</span></h1>
+  <h1>Sprite Editor <span style="color:#6b5f5e;font-weight:500">v1.1.1</span></h1>
   <span class="sep"></span>
   <button id="btnUndo" class="ghost" title="Undo (Ctrl+Z)">↶</button><button id="btnRedo" class="ghost" title="Redo (Ctrl+Y)">↷</button>
   <button id="btnNew" class="ghost" title="Start a new, empty project">New</button><button id="btnReset" class="ghost" title="Forget the autosave and start over">Reset</button><button id="btnOpen" class="ghost">Open…</button><button id="btnSave" class="ghost">Save</button>
@@ -184,7 +184,7 @@ a.manual:hover{background:#e8c443}
 (()=>{
 'use strict';
 /* ====================================================================
-   ATMlib Sprite Editor – merges the Arduboy image / tile / sprite
+   Sprite Editor – merges the Arduboy image / tile / sprite
    converters with a pixel editor. Pixel values: 0 black, 1 white, 2 transparent
    ==================================================================== */
 const BLACK=0, WHITE=1, TR=2, LS='atmSpriteEditor.v1';
@@ -438,7 +438,7 @@ function refresh(){renderList();renderFrames();renderProps();renderHead();render
 function changed(){autosave();renderCode();}
 
 /* ---------------- tools ---------------- */
-const TOOLS=[['pencil','Pencil','B'],['eraser','Eraser','E'],['line','Line','L'],['rect','Rectangle','R'],['ellipse','Ellipse','O'],['fill','Fill','G'],['pick','Picker','I'],['select','Select','M']];
+const TOOLS=[['pencil','Pencil','B'],['eraser','Eraser','E'],['line','Line','L'],['rect','Rectangle','R'],['ellipse','Ellipse','O'],['fill','Fill','G'],['pick','Picker','I'],['select','Select','M'],['cut','Cut &amp; drag','U'],['copy','Copy &amp; drag','C']];
 const TB=$('#tools');TOOLS.forEach(([id,n,k])=>{const b=document.createElement('button');b.className='ghost';b.dataset.t=id;b.innerHTML=`${n}<kbd>${k}</kbd>`;b.onclick=()=>{V.tool=id;renderTools();};TB.appendChild(b);});
 $$('#swatches .sw').forEach(b=>{const c=+b.dataset.c;
   b.onclick=()=>{if(c===TR&&!allowT(A()))return toast('Transparency is only available for sprites');V.c1=c;renderTools();};
@@ -458,22 +458,23 @@ cv.addEventListener('pointerdown',e=>{
   else if(t==='line'||t==='rect'||t==='ellipse'){pushUndo();drag.base=f.slice();plotM(a,f,x,y,col);}
   else if(t==='fill'){pushUndo();flood(a,f,x,y,col);drag=null;changed();}
   else if(t==='pick'){const v=f[y*a.w+x];if(e.button===2)V.c2=v;else V.c1=v;renderTools();drag=null;}
-  else if(t==='select'){
-    if(inSel(x,y)){pushUndo();const s=V.sel;drag.move=true;drag.sw=s.x1-s.x0+1;drag.sh=s.y1-s.y0+1;drag.buf=new Uint8Array(drag.sw*drag.sh);
+  else if(t==='select'||t==='cut'||t==='copy'){
+    if(t!=='select'&&inSel(x,y)){pushUndo();const s=V.sel;drag.move=true;drag.sw=s.x1-s.x0+1;drag.sh=s.y1-s.y0+1;drag.buf=new Uint8Array(drag.sw*drag.sh);
       for(let j=0;j<drag.sh;j++)for(let i=0;i<drag.sw;i++)drag.buf[j*drag.sw+i]=f[(s.y0+j)*a.w+s.x0+i];
-      drag.base=f.slice();for(let j=0;j<drag.sh;j++)for(let i=0;i<drag.sw;i++)drag.base[(s.y0+j)*a.w+s.x0+i]=bgOf(a);drag.ox=s.x0;drag.oy=s.y0;}
+      drag.base=f.slice();if(t==='cut')for(let j=0;j<drag.sh;j++)for(let i=0;i<drag.sw;i++)drag.base[(s.y0+j)*a.w+s.x0+i]=bgOf(a);drag.ox=s.x0;drag.oy=s.y0;V.clip={w:drag.sw,h:drag.sh,b:drag.buf.slice()};}
     else{V.sel={x0:x,y0:y,x1:x,y1:y};}
   }
   renderCanvas();
 });
 cv.addEventListener('pointermove',e=>{
   const a=A();if(!a)return;const [x,y]=posOf(e);V.hover=[x,y];$('#stPos').textContent=`x ${x}  y ${y}  (page ${Math.floor(y/8)}, bit ${y%8})`;
+  cv.style.cursor=((V.tool==='cut'||V.tool==='copy')&&inSel(x,y))?'move':'crosshair';
   if(!drag){renderCanvas();return;}
   const f=F(),t=V.tool;
   if(t==='pencil'||t==='eraser'){line(drag.lx,drag.ly,x,y,(px,py)=>plotM(a,f,px,py,drag.c));drag.lx=x;drag.ly=y;}
   else if(t==='line'||t==='rect'||t==='ellipse'){f.set(drag.base);const pl=(px,py)=>plotM(a,f,px,py,drag.col);
     if(t==='line')line(drag.x0,drag.y0,x,y,pl);else if(t==='rect')rect(drag.x0,drag.y0,x,y,pl,V.filled);else ellipse(drag.x0,drag.y0,x,y,pl,V.filled);}
-  else if(t==='select'){
+  else if(t==='select'||t==='cut'||t==='copy'){
     if(drag.move){const dx=x-drag.x0,dy=y-drag.y0;f.set(drag.base);
       for(let j=0;j<drag.sh;j++)for(let i=0;i<drag.sw;i++){const nx=drag.ox+dx+i,ny=drag.oy+dy+j;if(nx>=0&&ny>=0&&nx<a.w&&ny<a.h)f[ny*a.w+nx]=drag.buf[j*drag.sw+i];}
       V.sel={x0:drag.ox+dx,y0:drag.oy+dy,x1:drag.ox+dx+drag.sw-1,y1:drag.oy+dy+drag.sh-1};}
@@ -574,10 +575,10 @@ function helpDialog(){
   <p><b>Draw</b> with the tools on the left. Left click paints with the left color, right click with the right color. Transparent (checkerboard) only exists for <b>sprites</b> and becomes the <i>mask</i>: transparent pixels are not drawn by the Arduboy library.</p>
   <p><b>Assets</b> are sprites (several frames, optional mask), tiles (square frames) or images (one frame). <b>Import…</b> reads a <b>.h</b> file (you choose which arrays to import) or a png / jpg / gif (single image, sprite sheet or tile sheet – just like the old converters). You can also drop files on the page. <b>Export .h…</b> lets you choose which assets and which arrays (sprite, mask, sprite + mask) go into the file.</p>
   <table class="kv help">
-   <tr><td><kbd>B</kbd> <kbd>E</kbd> <kbd>L</kbd> <kbd>R</kbd> <kbd>O</kbd> <kbd>G</kbd> <kbd>I</kbd> <kbd>M</kbd></td><td>pencil, eraser, line, rectangle, ellipse, fill, picker, select</td></tr>
+   <tr><td><kbd>B</kbd> <kbd>E</kbd> <kbd>L</kbd> <kbd>R</kbd> <kbd>O</kbd> <kbd>G</kbd> <kbd>I</kbd> <kbd>M</kbd> <kbd>U</kbd> <kbd>C</kbd></td><td>pencil, eraser, line, rectangle, ellipse, fill, picker, select, cut &amp; drag, copy &amp; drag</td></tr>
    <tr><td><kbd>X</kbd></td><td>swap left / right color</td></tr>
    <tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Y</kbd></td><td>undo / redo</td></tr>
-   <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd> <kbd>X</kbd> <kbd>V</kbd>, <kbd>Del</kbd></td><td>copy, cut, paste, clear the selection (drag inside a selection to move it)</td></tr>
+   <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd> <kbd>X</kbd> <kbd>V</kbd>, <kbd>Del</kbd></td><td>copy, cut, paste, clear the selection. With the Cut or Copy tool: select an area, then press inside it and drag; the pixels land where you let go</td></tr>
    <tr><td><kbd>,</kbd> <kbd>.</kbd> &nbsp; <kbd>[</kbd> <kbd>]</kbd></td><td>move frame left/right &nbsp; previous/next frame</td></tr>
    <tr><td><kbd>Space</kbd></td><td>play / stop the animation preview</td></tr>
    <tr><td><kbd>Esc</kbd></td><td>deselect</td></tr>
@@ -752,7 +753,7 @@ document.addEventListener('keydown',e=>{
   if(ctrl&&(k==='x'||k==='X')){if(copySel()){e.preventDefault();clearSel();}return;}
   if(ctrl&&(k==='v'||k==='V')){if(V.clip){e.preventDefault();pasteClip();}return;}
   if(ctrl)return;
-  const map={b:'pencil',e:'eraser',l:'line',r:'rect',o:'ellipse',g:'fill',i:'pick',m:'select'};
+  const map={b:'pencil',e:'eraser',l:'line',r:'rect',o:'ellipse',g:'fill',i:'pick',m:'select',u:'cut',c:'copy'};
   if(map[k.toLowerCase()]){V.tool=map[k.toLowerCase()];renderTools();return;}
   if(k==='x'||k==='X'){[V.c1,V.c2]=[V.c2,V.c1];renderTools();return;}
   if(k==='Delete'||k==='Backspace'){if(V.sel){e.preventDefault();clearSel();}return;}
