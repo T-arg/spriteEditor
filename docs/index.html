@@ -94,11 +94,17 @@ a.manual:hover{background:#e8c443}
 .drop{position:fixed;inset:0;background:rgba(244,211,94,.35);border:6px dashed #4a3b3a;z-index:60;display:none;align-items:center;justify-content:center;font-size:26px;color:#4a3b3a;font-weight:700;pointer-events:none}
 .help td:first-child{white-space:nowrap;padding-right:14px}
 @media (max-width:1000px){.layout{grid-template-columns:1fr;height:auto}.panel{border:0;border-bottom:1px solid var(--line)}.panel.main{height:70vh}}
+
+.bmc-slot{gap:10px}
+.pp-btn{min-width:0!important}
+.pp-btn .pp-ico{width:22px;height:22px;fill:#fefefd;flex:none}
+.pp-btn span{margin-left:8px;white-space:nowrap;line-height:1}
+@media (max-width:1500px){.pp-btn span{display:none}.pp-btn{padding:0 14px!important}}
 </style></head>
 <body>
 <header>
   <a class="site-logo" href="https://t-arg.github.io/" title="TEAM a.r.g." target="_blank" rel="noopener noreferrer"><img src="data:image/gif;base64,R0lGODlheQAuAMIFAEc8Okg8OUY9Nk5BPv7+/P///////////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5BAEKAAcALAAAAAB5AC4AAAP+eHrRHivKSau9OOudA/kf4HBkaZ5PCnEe6DrDKc/z0LpfEG83DqrAxo5GNNk+tkduiOklB74oTheswipJq5CSvSqOBHDux7T0WjCptKeO6iTJ9uu9EJMP4Dz0XKacpw8DXYFyhXR4bIUEh4lLLWINi1N9En9hUIBrSFoqmItfTlaeizF5aZJhjR6Cd2Yve6o4rDqoiks5iCBxakJkjze0m7qeHr24ri9twTlopLY/uDd2ysGRtbdiT2OLwILeOw5Tco2oy4q0VMLPzrqJ6T/h13MPCsU4AIMpAFL428/Fj/b5+KYJWhSBLkQY9BGpGKJp8v75wyGgokUBY6w16jL+ioy6dRPn2LDBgBtDkAbNwUshyF6qgSpcsCoHciY5ew0Y7Hp1aV01W+EAMgQyZwzEcc3cjMzZ0I1JnyF5WXspa+rNeCifDpUEQchUeMy+AopHzg0adw3fwTxqi61XkgA7ivjmDaEsb2jsUvu4UslBrFnL4uyapSqQjn3RIA7rV2HWTWJBkptLZQFAYFrWYL3KUi1Kv48jQua2AJ+xVEDm8tv8zLRZ0DAD6I3KSzOVFfVEnA3CjTNYoJFjvlZV9qRZESIipOhNFHDR38DHwp5H3J3T4TmVB+XNbHYOux4AeL+eODIB3Y3Q34uFfYKSKiuZPTe6mLkD9ETlM8YeP1P+e/foISebPOHMtBBXux2Wj3A92cfJfvKZx41ufsDHxnYQMsbJdvnpt6EVw4imYQWylShgdeLFlOCDCN6X4gMvarHPgwMKJiCJ8A1loYYf2lfeh5dlJqJ9OHKnY3M8inLEckkK1xyQto1QSYp03YddGsg5qANdg1xioJaBrJiWV1S0NF1f7kUyI2bBWRgJlwseKROceM35zSp7tMSNmebRU0lYjOkpHSFbFhfaY+OBIB6fR1ZSTGG3pTgojIvECOSlmLJ4Hj47LUGSZUFyqF+TsPAYJTVnUscgczsJYYef9Ty1HIMs1XlbGUFol6ujuxaJGwOmYQaJH6TAkA6DVQbN1YWuQIBaBbPNkvjErwzcBl1X9JiyCjN4GXpMmlbUE8ggzm65LIkvVBAsQ8Cet4K2jkDXxqe8unpuCqBIGUgd3iDzLQUC5BMDTnUIhAk+JT1aBXgVSlltdviKSwesGwwgEMIo/BABJOBo7O8n4Gb38AoRVzsErCpY8EQNXtTRchaUuLxEw0Hs0G3JeJgp8ZZF9HzCyjRHqx259VLs89E915rFyNUiMgI9uRqN9NQsoMxUNO8+jXXKaFDtNQl08VvKFoKI7XQpcJ79tQQJAAA7" alt="TEAM a.r.g."></a>
-  <h1>Sprite Editor <span style="color:#6b5f5e;font-weight:500">v1.1.1</span></h1>
+  <h1>Sprite Editor <span style="color:#6b5f5e;font-weight:500">v1.1.2</span></h1>
   <span class="sep"></span>
   <button id="btnUndo" class="ghost" title="Undo (Ctrl+Z)">↶</button><button id="btnRedo" class="ghost" title="Redo (Ctrl+Y)">↷</button>
   <button id="btnNew" class="ghost" title="Start a new, empty project">New</button><button id="btnReset" class="ghost" title="Forget the autosave and start over">Reset</button><button id="btnOpen" class="ghost">Open…</button><button id="btnSave" class="ghost">Save</button>
@@ -106,7 +112,7 @@ a.manual:hover{background:#e8c443}
   <button id="btnImport" class="ghost" title="Import a .h file, or a png / jpg / gif image (or drop it on the page)">Import…</button><button id="btnExport" class="play" title="Export the assets as a .h file">Export .h…</button>
   <a class="manual" id="btnHelp" href="#">? Help</a>
   <input id="fileOpen" type="file" accept=".atmsprite,.json" hidden><input id="fileImport" type="file" accept=".h,.c,.cpp,.ino,.txt,image/*" hidden>
-  <div class="bmc-slot"><a class="bmc-btn" target="_blank" rel="noopener noreferrer" href="https://buymeacoffee.com/TEAMarg">☕<span class="bmc-btn-text">Cool tool? Buy us a coffee</span></a></div>
+  <div class="bmc-slot"><a class="bmc-btn" target="_blank" rel="noopener noreferrer" href="https://buymeacoffee.com/TEAMarg">☕<span class="bmc-btn-text">Cool tool? Buy us a coffee</span></a><a class="bmc-btn pp-btn" target="_blank" rel="noopener noreferrer" href="https://paypal.me/TEAMargJO3RI" title="Donate with PayPal"><svg class="pp-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z"/></svg><span>Donate with PayPal</span></a></div>
 </header>
 <div class="layout">
   <aside class="panel left">
