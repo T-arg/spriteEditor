@@ -97,6 +97,7 @@ a.manual:hover{background:#e8c443}
 
 .bmc-slot{gap:10px}
 .pp-btn{min-width:0!important}
+textarea.tx{width:100%;font:12px/1.35 ui-monospace,monospace;border:1px solid #4a3b3a;border-radius:3px;padding:4px 6px;background:#fff;color:#333;resize:vertical}
 .lyr{display:flex;align-items:center;gap:5px;padding:3px 5px;border:1px solid var(--line);border-radius:4px;background:#fff;margin:2px 0;cursor:pointer}
 .lyr:hover{border-color:#4a3b3a}.lyr.sel{border-color:#4a3b3a;box-shadow:inset 3px 0 0 #f4d35e}
 .lyr canvas{display:block;flex-shrink:0;border:1px solid #bbb;border-radius:2px;background:var(--chk);image-rendering:pixelated}
@@ -115,14 +116,14 @@ a.manual:hover{background:#e8c443}
 <body>
 <header>
   <a class="site-logo" href="https://t-arg.github.io/" title="TEAM a.r.g." target="_blank" rel="noopener noreferrer"><img src="data:image/gif;base64,R0lGODlheQAuAMIFAEc8Okg8OUY9Nk5BPv7+/P///////////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5BAEKAAcALAAAAAB5AC4AAAP+eHrRHivKSau9OOudA/kf4HBkaZ5PCnEe6DrDKc/z0LpfEG83DqrAxo5GNNk+tkduiOklB74oTheswipJq5CSvSqOBHDux7T0WjCptKeO6iTJ9uu9EJMP4Dz0XKacpw8DXYFyhXR4bIUEh4lLLWINi1N9En9hUIBrSFoqmItfTlaeizF5aZJhjR6Cd2Yve6o4rDqoiks5iCBxakJkjze0m7qeHr24ri9twTlopLY/uDd2ysGRtbdiT2OLwILeOw5Tco2oy4q0VMLPzrqJ6T/h13MPCsU4AIMpAFL428/Fj/b5+KYJWhSBLkQY9BGpGKJp8v75wyGgokUBY6w16jL+ioy6dRPn2LDBgBtDkAbNwUshyF6qgSpcsCoHciY5ew0Y7Hp1aV01W+EAMgQyZwzEcc3cjMzZ0I1JnyF5WXspa+rNeCifDpUEQchUeMy+AopHzg0adw3fwTxqi61XkgA7ivjmDaEsb2jsUvu4UslBrFnL4uyapSqQjn3RIA7rV2HWTWJBkptLZQFAYFrWYL3KUi1Kv48jQua2AJ+xVEDm8tv8zLRZ0DAD6I3KSzOVFfVEnA3CjTNYoJFjvlZV9qRZESIipOhNFHDR38DHwp5H3J3T4TmVB+XNbHYOux4AeL+eODIB3Y3Q34uFfYKSKiuZPTe6mLkD9ETlM8YeP1P+e/foISebPOHMtBBXux2Wj3A92cfJfvKZx41ufsDHxnYQMsbJdvnpt6EVw4imYQWylShgdeLFlOCDCN6X4gMvarHPgwMKJiCJ8A1loYYf2lfeh5dlJqJ9OHKnY3M8inLEckkK1xyQto1QSYp03YddGsg5qANdg1xioJaBrJiWV1S0NF1f7kUyI2bBWRgJlwseKROceM35zSp7tMSNmebRU0lYjOkpHSFbFhfaY+OBIB6fR1ZSTGG3pTgojIvECOSlmLJ4Hj47LUGSZUFyqF+TsPAYJTVnUscgczsJYYef9Ty1HIMs1XlbGUFol6ujuxaJGwOmYQaJH6TAkA6DVQbN1YWuQIBaBbPNkvjErwzcBl1X9JiyCjN4GXpMmlbUE8ggzm65LIkvVBAsQ8Cet4K2jkDXxqe8unpuCqBIGUgd3iDzLQUC5BMDTnUIhAk+JT1aBXgVSlltdviKSwesGwwgEMIo/BABJOBo7O8n4Gb38AoRVzsErCpY8EQNXtTRchaUuLxEw0Hs0G3JeJgp8ZZF9HzCyjRHqx259VLs89E915rFyNUiMgI9uRqN9NQsoMxUNO8+jXXKaFDtNQl08VvKFoKI7XQpcJ79tQQJAAA7" alt="TEAM a.r.g."></a>
-  <h1>Sprite Editor <span style="color:#6b5f5e;font-weight:500">v1.2.0</span></h1>
+  <h1>Sprite Editor <span style="color:#6b5f5e;font-weight:500">v1.3.0</span></h1>
   <span class="sep"></span>
   <button id="btnUndo" class="ghost" title="Undo (Ctrl+Z)">↶</button><button id="btnRedo" class="ghost" title="Redo (Ctrl+Y)">↷</button>
   <button id="btnNew" class="ghost" title="Start a new, empty project">New</button><button id="btnReset" class="ghost" title="Forget the autosave and start over">Reset</button><button id="btnOpen" class="ghost">Open…</button><button id="btnSave" class="ghost">Save</button>
   <span class="sep"></span>
   <button id="btnImport" class="ghost" title="Import a .h file, or a png / jpg / gif image (or drop it on the page)">Import…</button><button id="btnExport" class="play" title="Export the assets as a .h file">Export .h…</button>
   <a class="manual" id="btnHelp" href="#">? Help</a>
-  <input id="fileOpen" type="file" accept=".atmsprite,.json" hidden><input id="fileImport" type="file" accept=".h,.c,.cpp,.ino,.txt,image/*" hidden>
+  <input id="fileOpen" type="file" accept=".atmsprite,.json" hidden><input id="fileImport" type="file" accept=".h,.c,.cpp,.ino,.txt,.atmfont,image/*" hidden>
   <div class="bmc-slot"><a class="bmc-btn" target="_blank" rel="noopener noreferrer" href="https://buymeacoffee.com/TEAMarg">☕<span class="bmc-btn-text">Cool tool? Buy us a coffee</span></a><a class="bmc-btn pp-btn" target="_blank" rel="noopener noreferrer" href="https://paypal.me/TEAMargJO3RI" title="Donate with PayPal"><svg class="pp-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z"/></svg><span>Donate with PayPal</span></a></div>
 </header>
 <div class="layout">
@@ -133,6 +134,18 @@ a.manual:hover{background:#e8c443}
     <h2>Tools</h2>
     <div class="tool-grid" id="tools"></div>
     <label class="row chk" style="margin-top:6px"><input type="checkbox" id="oFilled"> Filled shapes</label>
+    <div id="textBox" style="display:none">
+      <h2>Text</h2>
+      <div class="row"><label style="min-width:50px">Font</label><select id="txFont" class="light" style="flex:1;min-width:0"></select></div>
+      <div class="btns"><button class="sm ghost" id="txAdd" title="Add a font made with the Pixel Font Editor (.atmfont file)">Add font…</button><button class="sm ghost" id="txDel" title="Remove this font (the built-in fonts stay)">Remove</button></div>
+      <div class="hint" id="txInfo"></div>
+      <textarea id="txText" class="tx" rows="3" spellcheck="false" placeholder="Type your text…"></textarea>
+      <div class="row"><label style="min-width:50px">Gaps</label><input type="number" id="txSp" min="-8" max="8" title="Letter gap (empty = the font's own)" style="width:56px"> <span class="hint">letters</span> <input type="number" id="txLg" min="0" max="32" title="Line gap (empty = the font's own)" style="width:56px"> <span class="hint">lines</span></div>
+      <div class="row"><label style="min-width:50px">Colours</label><select id="txCol" class="light" style="flex:1;min-width:0"><option value="font">the font's own colours</option><option value="left">left colour only</option><option value="lr">white → left, black → right</option></select></div>
+      <label class="row chk"><input type="checkbox" id="txWrap"> Wrap to the canvas width</label>
+      <div class="hint">Move over the canvas and click to stamp the text. Fonts come from the Pixel Font Editor (<b>.atmfont</b>).</div>
+      <input type="file" id="fileFont" accept=".atmfont,.json" hidden>
+    </div>
     <h2>Colors</h2>
     <div class="swatches" id="swatches">
       <button class="sw b" data-c="0" title="Black pixel"></button>
@@ -426,6 +439,7 @@ function renderCanvas(){
     for(let x=1;x<a.w;x++){cx.moveTo(x*z+.5,0);cx.lineTo(x*z+.5,h);}for(let y=1;y<a.h;y++){cx.moveTo(0,y*z+.5);cx.lineTo(w,y*z+.5);}cx.stroke();}
   if(V.pages){cx.strokeStyle='rgba(192,57,43,.8)';cx.lineWidth=1;cx.setLineDash([4,3]);cx.beginPath();for(let y=8;y<a.h;y+=8){cx.moveTo(0,y*z+.5);cx.lineTo(w,y*z+.5);}cx.stroke();cx.setLineDash([]);}
   if(V.sel){const s=V.sel;cx.lineWidth=2;cx.strokeStyle='#000';cx.setLineDash([6,4]);cx.strokeRect(s.x0*z+1,s.y0*z+1,(s.x1-s.x0+1)*z-2,(s.y1-s.y0+1)*z-2);cx.strokeStyle='#f4d35e';cx.lineDashOffset=5;cx.strokeRect(s.x0*z+1,s.y0*z+1,(s.x1-s.x0+1)*z-2,(s.y1-s.y0+1)*z-2);cx.setLineDash([]);cx.lineDashOffset=0;}
+  if(V.hover&&V.tool==='text'){const bm=getTB(a);if(bm){const [hx,hy]=V.hover;cx.globalAlpha=.85;for(let j=0;j<bm.h;j++)for(let i=0;i<bm.w;i++){const v=txMap(bm.b[j*bm.w+i]);if(v===TR)continue;cx.fillStyle=v===WHITE?'#fff':'#000';cx.fillRect((hx+i)*z,(hy+j)*z,z,z);}cx.globalAlpha=1;cx.lineWidth=1;cx.setLineDash([3,3]);cx.strokeStyle='#c0392b';cx.strokeRect(hx*z+.5,hy*z+.5,bm.w*z-1,bm.h*z-1);cx.setLineDash([]);}}
   if(V.hover&&['pencil','eraser','fill','pick'].includes(V.tool)){const [hx,hy]=V.hover;cx.lineWidth=1;cx.strokeStyle='#c0392b';cx.strokeRect(hx*z+.5,hy*z+.5,z-1,z-1);}
 }
 function thumbCanvas(a,f,maxW,maxH,scaleInt){
@@ -479,7 +493,7 @@ function renderHead(){
   $('#stInfo').textContent=a?`${a.w}×${a.h} · ${a.kind} · ${a.kind==='tile'?'tile':'frame'} ${S.fr+1}/${a.frames.length}`:'';
 }
 function renderTools(){
-  $$('#tools button').forEach(b=>b.classList.toggle('active',b.dataset.t===V.tool));
+  $$('#tools button').forEach(b=>b.classList.toggle('active',b.dataset.t===V.tool));$('#textBox').style.display=V.tool==='text'?'':'none';
   const a=A();$$('#swatches .sw').forEach(b=>{const c=+b.dataset.c;b.classList.toggle('p',c===V.c1);b.classList.toggle('s',c===V.c2);b.classList.toggle('off',c===TR&&!canT(a));
     b.innerHTML=(c===V.c1?'<span>L</span>':'')+(c===V.c2?'<span style="right:auto;left:1px">R</span>':'');});
 }
@@ -487,7 +501,7 @@ function refresh(){renderList();renderFrames();renderLayers();renderProps();rend
 function changed(){const a=A();if(a)comp(a,S.fr);autosave();renderCode();}
 
 /* ---------------- tools ---------------- */
-const TOOLS=[['pencil','Pencil','B'],['eraser','Eraser','E'],['line','Line','L'],['rect','Rectangle','R'],['ellipse','Ellipse','O'],['fill','Fill','G'],['pick','Picker','I'],['select','Select','M'],['cut','Cut &amp; drag','U'],['copy','Copy &amp; drag','C']];
+const TOOLS=[['pencil','Pencil','B'],['eraser','Eraser','E'],['line','Line','L'],['rect','Rectangle','R'],['ellipse','Ellipse','O'],['fill','Fill','G'],['pick','Picker','I'],['select','Select','M'],['cut','Cut &amp; drag','U'],['copy','Copy &amp; drag','C'],['text','Text','T']];
 const TB=$('#tools');TOOLS.forEach(([id,n,k])=>{const b=document.createElement('button');b.className='ghost';b.dataset.t=id;b.innerHTML=`${n}<kbd>${k}</kbd>`;b.onclick=()=>{V.tool=id;renderTools();};TB.appendChild(b);});
 $$('#swatches .sw').forEach(b=>{const c=+b.dataset.c;
   b.onclick=()=>{if(c===TR&&!canT(A()))return toast('Transparency is only available for sprites and on layers above the bottom one');V.c1=c;renderTools();};
@@ -502,11 +516,12 @@ cv.addEventListener('pointerdown',e=>{
   const a=A();if(!a)return;if(V.playing)stopPlay();e.preventDefault();cv.setPointerCapture(e.pointerId);
   const [x,y]=posOf(e);const f=F();const col=e.button===2?V.c2:V.c1;
   const t=V.tool;
-  if(['pencil','eraser','line','rect','ellipse','fill'].includes(t)||((t==='cut'||t==='copy')&&inSel(x,y))){const lk=layerBlock(a);if(lk){toast(lk);return;}}
+  if(['pencil','eraser','line','rect','ellipse','fill','text'].includes(t)||((t==='cut'||t==='copy')&&inSel(x,y))){const lk=layerBlock(a);if(lk){toast(lk);return;}}
   drag={x0:x,y0:y,lx:x,ly:y,col,btn:e.button};
   if(t==='pencil'||t==='eraser'){pushUndo();drag.c=t==='eraser'?bgOf(a):col;plotM(a,f,x,y,drag.c);}
   else if(t==='line'||t==='rect'||t==='ellipse'){pushUndo();drag.base=f.slice();plotM(a,f,x,y,col);}
   else if(t==='fill'){pushUndo();flood(a,f,x,y,col);drag=null;changed();}
+  else if(t==='text'){const bm=getTB(a);drag=null;if(bm){pushUndo();stampText(a,f,bm,x,y);changed();renderList();renderFrames();renderPrev();renderLayers();}else toast('Type some text first');}
   else if(t==='pick'){comp(a,S.fr);const v=a.frames[S.fr][y*a.w+x];if(e.button===2)V.c2=v;else V.c1=v;renderTools();drag=null;}
   else if(t==='select'||t==='cut'||t==='copy'){
     if(t!=='select'&&inSel(x,y)){pushUndo();const s=V.sel;drag.move=true;drag.sw=s.x1-s.x0+1;drag.sh=s.y1-s.y0+1;drag.buf=new Uint8Array(drag.sw*drag.sh);
@@ -670,7 +685,8 @@ function helpDialog(){
   <p><b>Draw</b> with the tools on the left. Left click paints with the left color, right click with the right color. Transparent (checkerboard) only exists for <b>sprites</b> and becomes the <i>mask</i>: transparent pixels are not drawn by the Arduboy library.</p>
   <p><b>Assets</b> are sprites (several frames, optional mask), tiles (square frames) or images (one frame). <b>Import…</b> reads a <b>.h</b> file (you choose which arrays to import) or a png / jpg / gif (single image, sprite sheet or tile sheet – just like the old converters). You can also drop files on the page. <b>Export .h…</b> lets you choose which assets and which arrays (sprite, mask, sprite + mask) go into the file.</p>
   <table class="kv help">
-   <tr><td><kbd>B</kbd> <kbd>E</kbd> <kbd>L</kbd> <kbd>R</kbd> <kbd>O</kbd> <kbd>G</kbd> <kbd>I</kbd> <kbd>M</kbd> <kbd>U</kbd> <kbd>C</kbd></td><td>pencil, eraser, line, rectangle, ellipse, fill, picker, select, cut &amp; drag, copy &amp; drag</td></tr>
+   <tr><td><kbd>B</kbd> <kbd>E</kbd> <kbd>L</kbd> <kbd>R</kbd> <kbd>O</kbd> <kbd>G</kbd> <kbd>I</kbd> <kbd>M</kbd> <kbd>U</kbd> <kbd>C</kbd> <kbd>T</kbd></td><td>pencil, eraser, line, rectangle, ellipse, fill, picker, select, cut &amp; drag, copy &amp; drag, text</td></tr>
+   <tr><td>Text</td><td>The <b>Text</b> tool stamps a line of text as pixels: pick a font, type the text, move over the canvas (a preview follows the cursor) and click. Two small fonts are built in. To use your own, make it in the <b>Pixel Font Editor</b>, save the <b>.atmfont</b> file and add it with <b>Add font…</b> (or <b>Import…</b>, or drop the file on the page). Added fonts are kept in this browser.</td></tr>
    <tr><td><kbd>X</kbd></td><td>swap left / right color</td></tr>
    <tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Y</kbd></td><td>undo / redo</td></tr>
    <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd> <kbd>X</kbd> <kbd>V</kbd>, <kbd>Del</kbd></td><td>copy, cut, paste, clear the selection. With the Cut or Copy tool: select an area, then press inside it and drag; the pixels land where you let go</td></tr>
@@ -830,6 +846,7 @@ $('#fileOpen').onchange=e=>{const f=e.target.files[0];e.target.value='';if(f)ope
 $('#fileImport').onchange=e=>{[...e.target.files].forEach(handleFile);e.target.value='';};
 function openProject(f){const r=new FileReader();r.onload=()=>{try{const o=JSON.parse(r.result);pushUndo();load(o);refresh();autosave();fitZoom();toast('Opened '+f.name);}catch(err){toast('Could not open: '+err.message);}};r.readAsText(f);}
 function handleFile(f){
+  if(/\.atmfont$/i.test(f.name))return addFontFile(f);
   if(/\.(atmsprite|json)$/i.test(f.name))return openProject(f);
   if(/^image\//.test(f.type)||/\.(png|jpe?g|gif|bmp|webp)$/i.test(f.name))return importImageDialog(f);
   const r=new FileReader();r.onload=()=>importHDialog(String(r.result),f.name);r.readAsText(f);
@@ -850,7 +867,7 @@ document.addEventListener('keydown',e=>{
   if(ctrl&&(k==='x'||k==='X')){if(copySel()){e.preventDefault();clearSel();}return;}
   if(ctrl&&(k==='v'||k==='V')){if(V.clip){e.preventDefault();pasteClip();}return;}
   if(ctrl)return;
-  const map={b:'pencil',e:'eraser',l:'line',r:'rect',o:'ellipse',g:'fill',i:'pick',m:'select',u:'cut',c:'copy'};
+  const map={b:'pencil',e:'eraser',l:'line',r:'rect',o:'ellipse',g:'fill',i:'pick',m:'select',u:'cut',c:'copy',t:'text'};
   if(map[k.toLowerCase()]){V.tool=map[k.toLowerCase()];renderTools();return;}
   if(k==='x'||k==='X'){[V.c1,V.c2]=[V.c2,V.c1];renderTools();return;}
   if(k==='Delete'||k==='Backspace'){if(V.sel){e.preventDefault();clearSel();}return;}
@@ -861,6 +878,72 @@ document.addEventListener('keydown',e=>{
 });
 $('#btnUndo').onclick=doUndo;$('#btnRedo').onclick=doRedo;
 window.addEventListener('resize',()=>{});
+
+
+/* ---------------- text tool: stamps text with a font made in the Pixel Font Editor (.atmfont) ---------------- */
+const BUILTIN_FONTS=[{"name":"3x5 (ID-20)","w":3,"h":5,"first":32,"last":95,"spacing":1,"gap":2,"prop":false,"glyphs":{"33":{"rows":[2,2,2,0,2],"adv":3},"34":{"rows":[5,5,0,0,0],"adv":3},"35":{"rows":[5,7,5,7,5],"adv":3},"36":{"rows":[6,3,7,6,3],"adv":3},"37":{"rows":[5,4,2,1,5],"adv":3},"38":{"rows":[2,5,6,5,6],"adv":3},"39":{"rows":[2,2,0,0,0],"adv":3},"40":{"rows":[2,1,1,1,2],"adv":3},"41":{"rows":[2,4,4,4,2],"adv":3},"42":{"rows":[0,5,2,5,0],"adv":3},"43":{"rows":[0,2,7,2,0],"adv":3},"44":{"rows":[0,0,0,2,1],"adv":3},"45":{"rows":[0,0,7,0,0],"adv":3},"46":{"rows":[0,0,0,0,2],"adv":3},"47":{"rows":[4,4,2,1,1],"adv":3},"48":{"rows":[7,5,5,5,7],"adv":3},"49":{"rows":[3,2,2,2,7],"adv":3},"50":{"rows":[7,4,7,1,7],"adv":3},"51":{"rows":[7,4,6,4,7],"adv":3},"52":{"rows":[5,5,7,4,4],"adv":3},"53":{"rows":[7,1,7,4,7],"adv":3},"54":{"rows":[7,1,7,5,7],"adv":3},"55":{"rows":[7,4,4,4,4],"adv":3},"56":{"rows":[7,5,7,5,7],"adv":3},"57":{"rows":[7,5,7,4,7],"adv":3},"58":{"rows":[0,2,0,2,0],"adv":3},"59":{"rows":[0,2,0,2,1],"adv":3},"60":{"rows":[4,2,1,2,4],"adv":3},"61":{"rows":[0,7,0,7,0],"adv":3},"62":{"rows":[1,2,4,2,1],"adv":3},"63":{"rows":[3,4,2,0,2],"adv":3},"64":{"rows":[7,5,7,1,7],"adv":3},"65":{"rows":[7,5,7,5,5],"adv":3},"66":{"rows":[3,5,3,5,3],"adv":3},"67":{"rows":[7,1,1,1,7],"adv":3},"68":{"rows":[3,5,5,5,3],"adv":3},"69":{"rows":[7,1,3,1,7],"adv":3},"70":{"rows":[7,1,3,1,1],"adv":3},"71":{"rows":[7,1,5,5,7],"adv":3},"72":{"rows":[5,5,7,5,5],"adv":3},"73":{"rows":[7,2,2,2,7],"adv":3},"74":{"rows":[7,4,4,5,7],"adv":3},"75":{"rows":[5,3,3,5,5],"adv":3},"76":{"rows":[1,1,1,1,7],"adv":3},"77":{"rows":[7,7,7,5,5],"adv":3},"78":{"rows":[7,5,5,5,5],"adv":3},"79":{"rows":[7,5,5,5,7],"adv":3},"80":{"rows":[7,5,7,1,1],"adv":3},"81":{"rows":[7,5,5,7,4],"adv":3},"82":{"rows":[3,5,3,5,5],"adv":3},"83":{"rows":[7,1,7,4,7],"adv":3},"84":{"rows":[7,2,2,2,2],"adv":3},"85":{"rows":[5,5,5,5,7],"adv":3},"86":{"rows":[5,5,5,5,2],"adv":3},"87":{"rows":[5,5,7,7,7],"adv":3},"88":{"rows":[5,5,2,5,5],"adv":3},"89":{"rows":[5,5,7,2,2],"adv":3},"90":{"rows":[7,4,2,1,7],"adv":3},"91":{"rows":[3,1,1,1,3],"adv":3},"92":{"rows":[1,1,2,4,4],"adv":3},"93":{"rows":[6,4,4,4,6],"adv":3},"94":{"rows":[2,5,0,0,0],"adv":3},"95":{"rows":[0,0,0,0,7],"adv":3}}},{"name":"5x7","w":5,"h":7,"first":32,"last":95,"spacing":1,"gap":2,"prop":true,"glyphs":{"32":{"rows":[0,0,0,0,0,0,0],"adv":3},"33":{"rows":[4,4,4,4,4,0,4],"adv":3},"34":{"rows":[10,10,10,0,0,0,0],"adv":4},"35":{"rows":[10,10,31,10,31,10,10],"adv":5},"36":{"rows":[4,30,5,14,20,15,4],"adv":5},"37":{"rows":[3,19,8,4,2,25,24],"adv":5},"38":{"rows":[6,9,5,2,21,9,22],"adv":5},"39":{"rows":[4,4,2,0,0,0,0],"adv":3},"40":{"rows":[8,4,2,2,2,4,8],"adv":4},"41":{"rows":[2,4,8,8,8,4,2],"adv":4},"42":{"rows":[0,21,14,31,14,21,0],"adv":5},"43":{"rows":[0,4,4,31,4,4,0],"adv":5},"44":{"rows":[0,0,0,0,6,4,2],"adv":3},"45":{"rows":[0,0,0,31,0,0,0],"adv":5},"46":{"rows":[0,0,0,0,0,6,6],"adv":3},"47":{"rows":[0,16,8,4,2,1,0],"adv":5},"48":{"rows":[14,17,25,21,19,17,14],"adv":5},"49":{"rows":[4,6,4,4,4,4,14],"adv":4},"50":{"rows":[14,17,16,8,4,2,31],"adv":5},"51":{"rows":[31,8,4,8,16,17,14],"adv":5},"52":{"rows":[8,12,10,9,31,8,8],"adv":5},"53":{"rows":[31,1,15,16,16,17,14],"adv":5},"54":{"rows":[12,2,1,15,17,17,14],"adv":5},"55":{"rows":[31,16,8,4,2,2,2],"adv":5},"56":{"rows":[14,17,17,14,17,17,14],"adv":5},"57":{"rows":[14,17,17,30,16,8,6],"adv":5},"58":{"rows":[0,6,6,0,6,6,0],"adv":3},"59":{"rows":[0,6,6,0,6,4,2],"adv":3},"60":{"rows":[8,4,2,1,2,4,8],"adv":4},"61":{"rows":[0,0,31,0,31,0,0],"adv":5},"62":{"rows":[2,4,8,16,8,4,2],"adv":5},"63":{"rows":[14,17,16,8,4,0,4],"adv":5},"64":{"rows":[14,17,29,21,29,1,14],"adv":5},"65":{"rows":[14,17,17,31,17,17,17],"adv":5},"66":{"rows":[15,17,17,15,17,17,15],"adv":5},"67":{"rows":[14,17,1,1,1,17,14],"adv":5},"68":{"rows":[7,9,17,17,17,9,7],"adv":5},"69":{"rows":[31,1,1,15,1,1,31],"adv":5},"70":{"rows":[31,1,1,15,1,1,1],"adv":5},"71":{"rows":[14,17,1,29,17,17,30],"adv":5},"72":{"rows":[17,17,17,31,17,17,17],"adv":5},"73":{"rows":[14,4,4,4,4,4,14],"adv":4},"74":{"rows":[28,8,8,8,8,9,6],"adv":5},"75":{"rows":[17,9,5,3,5,9,17],"adv":5},"76":{"rows":[1,1,1,1,1,1,31],"adv":5},"77":{"rows":[17,27,21,21,17,17,17],"adv":5},"78":{"rows":[17,17,19,21,25,17,17],"adv":5},"79":{"rows":[14,17,17,17,17,17,14],"adv":5},"80":{"rows":[15,17,17,15,1,1,1],"adv":5},"81":{"rows":[14,17,17,17,21,9,22],"adv":5},"82":{"rows":[15,17,17,15,5,9,17],"adv":5},"83":{"rows":[30,1,1,14,16,16,15],"adv":5},"84":{"rows":[31,4,4,4,4,4,4],"adv":5},"85":{"rows":[17,17,17,17,17,17,14],"adv":5},"86":{"rows":[17,17,17,17,17,10,4],"adv":5},"87":{"rows":[17,17,17,21,21,27,17],"adv":5},"88":{"rows":[17,17,10,4,10,17,17],"adv":5},"89":{"rows":[17,17,10,4,4,4,4],"adv":5},"90":{"rows":[31,16,8,4,2,1,31],"adv":5},"91":{"rows":[14,2,2,2,2,2,14],"adv":4},"92":{"rows":[0,1,2,4,8,16,0],"adv":5},"93":{"rows":[14,8,8,8,8,8,14],"adv":4},"94":{"rows":[4,10,17,0,0,0,0],"adv":5},"95":{"rows":[0,0,0,0,0,0,31],"adv":5}}}];
+const FKEY='atmSpriteEditor.fonts',TKEY='atmSpriteEditor.text';
+function sanFont(o){
+  if(o&&o.font&&typeof o.font==='object')o=o.font;if(!o||typeof o!=='object'||!(o.w>0&&o.h>0))return null;
+  const w=clamp(o.w|0,1,24),h=clamp(o.h|0,1,24);let a=clamp(o.first|0,0,255),b=clamp(o.last|0,0,255);if(a>b)[a,b]=[b,a];
+  const mask=(1<<w)-1,f={name:String(o.name||'font').slice(0,40),w,h,first:a,last:b,spacing:clamp(o.spacing|0,-8,8),gap:clamp(o.gap|0,0,32),prop:!!o.prop,g:{}};
+  for(const k in (o.glyphs||{})){const c=+k;if(!(c>=0&&c<=255))continue;const q=o.glyphs[k],rows=[],m=[];
+    for(let y=0;y<h;y++){const r=((q.rows&&q.rows[y])|0)&mask;rows.push(r);m.push((q.m?((q.m[y]|0)&mask):r)|r);}
+    f.g[c]={rows,m,adv:clamp(q.adv==null?w:q.adv|0,0,w)};}
+  return f;
+}
+const builtinFonts=BUILTIN_FONTS.map(sanFont);builtinFonts.forEach(f=>f.builtin=true);
+let userFonts=[];try{userFonts=(JSON.parse(localStorage.getItem(FKEY)||'[]')||[]).map(sanFont).filter(Boolean);}catch(e){}
+const TX={font:builtinFonts[0].name,text:'HELLO',sp:'',lg:'',col:'font',wrap:false};
+try{Object.assign(TX,JSON.parse(localStorage.getItem(TKEY)||'{}'));}catch(e){}
+const allFonts=()=>builtinFonts.concat(userFonts);
+const curFont=()=>allFonts().find(f=>f.name===TX.font)||builtinFonts[0];
+function saveFonts(){try{localStorage.setItem(FKEY,JSON.stringify(userFonts.map(f=>({name:f.name,w:f.w,h:f.h,first:f.first,last:f.last,spacing:f.spacing,gap:f.gap,prop:f.prop,glyphs:Object.fromEntries(Object.entries(f.g).map(([c,g])=>[c,{rows:g.rows,m:g.m,adv:g.adv}]))}))));}catch(e){toast('Could not store the font in this browser');}}
+function saveTx(){try{localStorage.setItem(TKEY,JSON.stringify(TX));}catch(e){}}
+/* text -> bitmap of pixel states (0 black, 1 white, 2 transparent). Same rules as the Pixel Font Editor preview and the Arduboy export:
+   proportional widths (ink right of the advance is cut off), letter gap (negative = letters overlap and the previous letter stays on top),
+   line gap, lower case falls back to the capital, unknown characters are blank. */
+function textBitmap(f,text,wrapW,sp,lg){
+  const pc=c=>(c<f.first||c>f.last||!f.g[c])&&c>=97&&c<=122&&c-32>=f.first&&c-32<=f.last?c-32:c;
+  const adv=c=>{c=pc(c);if(c<f.first||c>f.last)return f.prop?Math.max(1,f.w>>1):f.w;const g=f.g[c];return f.prop?(g?g.adv:f.w):f.w;};
+  const wid=t=>{let w=0;for(const ch of t)w+=adv(ch.charCodeAt(0))+sp;return Math.max(0,w-sp);};
+  const lines=[];for(const para of String(text).split('\n')){if(!(wrapW>0)){lines.push(para);continue;}let line='';for(const w of para.split(' ')){const t=line?line+' '+w:w;if(!line||wid(t)<=wrapW)line=t;else{lines.push(line);line=w;}}lines.push(line);}
+  const W=Math.max(1,...lines.map(wid)),H=lines.length*f.h+(lines.length-1)*lg,b=new Uint8Array(W*H).fill(TR);
+  lines.forEach((ln,li)=>{let x=0;const it=[];for(const ch of ln){const c=ch.charCodeAt(0),m=pc(c);if(m>=f.first&&m<=f.last&&f.g[m])it.push([f.g[m],x,adv(c)]);x+=adv(c)+sp;}
+    for(let k=it.length-1;k>=0;k--){const [g,x0,aw]=it[k],lim=f.prop?Math.min(aw,f.w):f.w;
+      for(let y=0;y<f.h;y++)for(let i=0;i<lim;i++){if(!((g.m[y]>>i)&1))continue;const px=x0+i,py=li*(f.h+lg)+y;if(px>=0&&px<W)b[py*W+px]=((g.rows[y]>>i)&1)?WHITE:BLACK;}}});
+  return {w:W,h:H,b};
+}
+let tbKey='',tbVal=null;
+function getTB(a){const f=curFont();if(!TX.text.replace(/\s/g,''))return null;
+  const sp=TX.sp===''||isNaN(+TX.sp)?f.spacing:clamp(+TX.sp|0,-8,8),lg=TX.lg===''||isNaN(+TX.lg)?f.gap:clamp(+TX.lg|0,0,32),ww=TX.wrap&&a?a.w:0;
+  const k=[f.name,f.w,f.h,TX.text,sp,lg,ww].join('|');if(k!==tbKey){tbKey=k;tbVal=textBitmap(f,TX.text,ww,sp,lg);}return tbVal;}
+const txMap=v=>{if(v===TR)return TR;if(TX.col==='left')return V.c1;if(TX.col==='lr')return v===WHITE?V.c1:V.c2;return v;};
+function stampText(a,f,bm,x0,y0){for(let j=0;j<bm.h;j++)for(let i=0;i<bm.w;i++){const v=txMap(bm.b[j*bm.w+i]);if(v===TR&&bm.b[j*bm.w+i]===TR)continue;put(a,f,x0+i,y0+j,v);}}
+function renderFontUI(){
+  const sel=$('#txFont');sel.innerHTML='';
+  const og=(label,fs)=>{if(!fs.length)return;const g=document.createElement('optgroup');g.label=label;fs.forEach(f=>{const o=document.createElement('option');o.value=f.name;o.textContent=f.name+'  ('+f.w+'×'+f.h+')';g.appendChild(o);});sel.appendChild(g);};
+  og('Built in',builtinFonts);og('Added by you',userFonts);
+  const f=curFont();TX.font=f.name;sel.value=f.name;$('#txDel').disabled=!!f.builtin;
+  const cnt=Object.keys(f.g).length;$('#txInfo').textContent=f.w+'×'+f.h+' px · '+(f.prop?'proportional':'fixed width')+' · characters '+f.first+'–'+f.last+' ('+cnt+' drawn)';
+  $('#txSp').placeholder=String(f.spacing);$('#txLg').placeholder=String(f.gap);
+}
+function syncTxUI(){$('#txText').value=TX.text;$('#txSp').value=TX.sp;$('#txLg').value=TX.lg;$('#txCol').value=TX.col;$('#txWrap').checked=!!TX.wrap;renderFontUI();}
+function addFontFile(file){
+  const rd=new FileReader();rd.onload=()=>{let f=null;try{f=sanFont(JSON.parse(String(rd.result)));}catch(e){}
+    if(!f||!Object.keys(f.g).length)return toast('That is not a font file from the Pixel Font Editor (.atmfont)');
+    if(builtinFonts.some(b=>b.name===f.name))f.name+=' (yours)';
+    const i=userFonts.findIndex(u=>u.name===f.name);if(i>=0)userFonts[i]=f;else userFonts.push(f);
+    saveFonts();TX.font=f.name;saveTx();V.tool='text';renderFontUI();renderTools();renderCanvas();toast('Font “'+f.name+'” added – click on the canvas to stamp text');};
+  rd.readAsText(file);
+}
+$('#txFont').onchange=()=>{TX.font=$('#txFont').value;saveTx();renderFontUI();renderCanvas();};
+$('#txText').oninput=()=>{TX.text=$('#txText').value;saveTx();renderCanvas();};
+$('#txSp').oninput=()=>{TX.sp=$('#txSp').value;saveTx();renderCanvas();};$('#txLg').oninput=()=>{TX.lg=$('#txLg').value;saveTx();renderCanvas();};
+$('#txCol').onchange=()=>{TX.col=$('#txCol').value;saveTx();renderCanvas();};$('#txWrap').onchange=()=>{TX.wrap=$('#txWrap').checked;saveTx();renderCanvas();};
+$('#txAdd').onclick=()=>$('#fileFont').click();$('#fileFont').onchange=e=>{[...e.target.files].forEach(addFontFile);e.target.value='';};
+$('#txDel').onclick=()=>{const f=curFont();if(f.builtin)return;userFonts=userFonts.filter(u=>u!==f);saveFonts();TX.font=builtinFonts[0].name;saveTx();renderFontUI();renderCanvas();toast('Font removed');};
+syncTxUI();
 
 /* ---------------- start ---------------- */
 try{const s=localStorage.getItem(LS);if(s)load(JSON.parse(s));else defaultProject();}catch(e){defaultProject();}
