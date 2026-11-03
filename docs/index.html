@@ -116,7 +116,7 @@ textarea.tx{width:100%;font:12px/1.35 ui-monospace,monospace;border:1px solid #4
 <body>
 <header>
   <a class="site-logo" href="https://t-arg.github.io/" title="TEAM a.r.g." target="_blank" rel="noopener noreferrer"><img src="data:image/gif;base64,R0lGODlheQAuAMIFAEc8Okg8OUY9Nk5BPv7+/P///////////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5BAEKAAcALAAAAAB5AC4AAAP+eHrRHivKSau9OOudA/kf4HBkaZ5PCnEe6DrDKc/z0LpfEG83DqrAxo5GNNk+tkduiOklB74oTheswipJq5CSvSqOBHDux7T0WjCptKeO6iTJ9uu9EJMP4Dz0XKacpw8DXYFyhXR4bIUEh4lLLWINi1N9En9hUIBrSFoqmItfTlaeizF5aZJhjR6Cd2Yve6o4rDqoiks5iCBxakJkjze0m7qeHr24ri9twTlopLY/uDd2ysGRtbdiT2OLwILeOw5Tco2oy4q0VMLPzrqJ6T/h13MPCsU4AIMpAFL428/Fj/b5+KYJWhSBLkQY9BGpGKJp8v75wyGgokUBY6w16jL+ioy6dRPn2LDBgBtDkAbNwUshyF6qgSpcsCoHciY5ew0Y7Hp1aV01W+EAMgQyZwzEcc3cjMzZ0I1JnyF5WXspa+rNeCifDpUEQchUeMy+AopHzg0adw3fwTxqi61XkgA7ivjmDaEsb2jsUvu4UslBrFnL4uyapSqQjn3RIA7rV2HWTWJBkptLZQFAYFrWYL3KUi1Kv48jQua2AJ+xVEDm8tv8zLRZ0DAD6I3KSzOVFfVEnA3CjTNYoJFjvlZV9qRZESIipOhNFHDR38DHwp5H3J3T4TmVB+XNbHYOux4AeL+eODIB3Y3Q34uFfYKSKiuZPTe6mLkD9ETlM8YeP1P+e/foISebPOHMtBBXux2Wj3A92cfJfvKZx41ufsDHxnYQMsbJdvnpt6EVw4imYQWylShgdeLFlOCDCN6X4gMvarHPgwMKJiCJ8A1loYYf2lfeh5dlJqJ9OHKnY3M8inLEckkK1xyQto1QSYp03YddGsg5qANdg1xioJaBrJiWV1S0NF1f7kUyI2bBWRgJlwseKROceM35zSp7tMSNmebRU0lYjOkpHSFbFhfaY+OBIB6fR1ZSTGG3pTgojIvECOSlmLJ4Hj47LUGSZUFyqF+TsPAYJTVnUscgczsJYYef9Ty1HIMs1XlbGUFol6ujuxaJGwOmYQaJH6TAkA6DVQbN1YWuQIBaBbPNkvjErwzcBl1X9JiyCjN4GXpMmlbUE8ggzm65LIkvVBAsQ8Cet4K2jkDXxqe8unpuCqBIGUgd3iDzLQUC5BMDTnUIhAk+JT1aBXgVSlltdviKSwesGwwgEMIo/BABJOBo7O8n4Gb38AoRVzsErCpY8EQNXtTRchaUuLxEw0Hs0G3JeJgp8ZZF9HzCyjRHqx259VLs89E915rFyNUiMgI9uRqN9NQsoMxUNO8+jXXKaFDtNQl08VvKFoKI7XQpcJ79tQQJAAA7" alt="TEAM a.r.g."></a>
-  <h1>Sprite Editor <span style="color:#6b5f5e;font-weight:500">v1.3.0</span></h1>
+  <h1>Sprite Editor <span style="color:#6b5f5e;font-weight:500">v1.4.0</span></h1>
   <span class="sep"></span>
   <button id="btnUndo" class="ghost" title="Undo (Ctrl+Z)">↶</button><button id="btnRedo" class="ghost" title="Redo (Ctrl+Y)">↷</button>
   <button id="btnNew" class="ghost" title="Start a new, empty project">New</button><button id="btnReset" class="ghost" title="Forget the autosave and start over">Reset</button><button id="btnOpen" class="ghost">Open…</button><button id="btnSave" class="ghost">Save</button>
@@ -142,6 +142,7 @@ textarea.tx{width:100%;font:12px/1.35 ui-monospace,monospace;border:1px solid #4
       <textarea id="txText" class="tx" rows="3" spellcheck="false" placeholder="Type your text…"></textarea>
       <div class="row"><label style="min-width:50px">Gaps</label><input type="number" id="txSp" min="-8" max="8" title="Letter gap (empty = the font's own)" style="width:56px"> <span class="hint">letters</span> <input type="number" id="txLg" min="0" max="32" title="Line gap (empty = the font's own)" style="width:56px"> <span class="hint">lines</span></div>
       <div class="row"><label style="min-width:50px">Colours</label><select id="txCol" class="light" style="flex:1;min-width:0"><option value="font">the font's own colours</option><option value="left">left colour only</option><option value="lr">white → left, black → right</option></select></div>
+      <div class="row"><label style="min-width:50px">Size</label><select id="txSize" class="light" style="flex:1;min-width:0"><option value="1">1x</option><option value="2">2x</option><option value="3">3x</option><option value="4">4x</option></select></div>
       <label class="row chk"><input type="checkbox" id="txWrap"> Wrap to the canvas width</label>
       <div class="hint">Move over the canvas and click to stamp the text. Fonts come from the Pixel Font Editor (<b>.atmfont</b>).</div>
       <input type="file" id="fileFont" accept=".atmfont,.json" hidden>
@@ -686,7 +687,7 @@ function helpDialog(){
   <p><b>Assets</b> are sprites (several frames, optional mask), tiles (square frames) or images (one frame). <b>Import…</b> reads a <b>.h</b> file (you choose which arrays to import) or a png / jpg / gif (single image, sprite sheet or tile sheet – just like the old converters). You can also drop files on the page. <b>Export .h…</b> lets you choose which assets and which arrays (sprite, mask, sprite + mask) go into the file.</p>
   <table class="kv help">
    <tr><td><kbd>B</kbd> <kbd>E</kbd> <kbd>L</kbd> <kbd>R</kbd> <kbd>O</kbd> <kbd>G</kbd> <kbd>I</kbd> <kbd>M</kbd> <kbd>U</kbd> <kbd>C</kbd> <kbd>T</kbd></td><td>pencil, eraser, line, rectangle, ellipse, fill, picker, select, cut &amp; drag, copy &amp; drag, text</td></tr>
-   <tr><td>Text</td><td>The <b>Text</b> tool stamps a line of text as pixels: pick a font, type the text, move over the canvas (a preview follows the cursor) and click. Two small fonts are built in. To use your own, make it in the <b>Pixel Font Editor</b>, save the <b>.atmfont</b> file and add it with <b>Add font…</b> (or <b>Import…</b>, or drop the file on the page). Added fonts are kept in this browser.</td></tr>
+   <tr><td>Text</td><td>The <b>Text</b> tool stamps a line of text as pixels: pick a font, type the text, move over the canvas (a preview follows the cursor) and click. <b>Size</b> (1x–4x) enlarges the text by whole pixels; with <b>Wrap</b> on, the wrap width follows the size. Two small fonts are built in. To use your own, make it in the <b>Pixel Font Editor</b>, save the <b>.atmfont</b> file and add it with <b>Add font…</b> (or <b>Import…</b>, or drop the file on the page). Added fonts are kept in this browser.</td></tr>
    <tr><td><kbd>X</kbd></td><td>swap left / right color</td></tr>
    <tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Y</kbd></td><td>undo / redo</td></tr>
    <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd> <kbd>X</kbd> <kbd>V</kbd>, <kbd>Del</kbd></td><td>copy, cut, paste, clear the selection. With the Cut or Copy tool: select an area, then press inside it and drag; the pixels land where you let go</td></tr>
@@ -894,7 +895,7 @@ function sanFont(o){
 }
 const builtinFonts=BUILTIN_FONTS.map(sanFont);builtinFonts.forEach(f=>f.builtin=true);
 let userFonts=[];try{userFonts=(JSON.parse(localStorage.getItem(FKEY)||'[]')||[]).map(sanFont).filter(Boolean);}catch(e){}
-const TX={font:builtinFonts[0].name,text:'HELLO',sp:'',lg:'',col:'font',wrap:false};
+const TX={font:builtinFonts[0].name,text:'HELLO',sp:'',lg:'',col:'font',wrap:false,size:1};
 try{Object.assign(TX,JSON.parse(localStorage.getItem(TKEY)||'{}'));}catch(e){}
 const allFonts=()=>builtinFonts.concat(userFonts);
 const curFont=()=>allFonts().find(f=>f.name===TX.font)||builtinFonts[0];
@@ -916,8 +917,9 @@ function textBitmap(f,text,wrapW,sp,lg){
 }
 let tbKey='',tbVal=null;
 function getTB(a){const f=curFont();if(!TX.text.replace(/\s/g,''))return null;
-  const sp=TX.sp===''||isNaN(+TX.sp)?f.spacing:clamp(+TX.sp|0,-8,8),lg=TX.lg===''||isNaN(+TX.lg)?f.gap:clamp(+TX.lg|0,0,32),ww=TX.wrap&&a?a.w:0;
-  const k=[f.name,f.w,f.h,TX.text,sp,lg,ww].join('|');if(k!==tbKey){tbKey=k;tbVal=textBitmap(f,TX.text,ww,sp,lg);}return tbVal;}
+  const sp=TX.sp===''||isNaN(+TX.sp)?f.spacing:clamp(+TX.sp|0,-8,8),lg=TX.lg===''||isNaN(+TX.lg)?f.gap:clamp(+TX.lg|0,0,32),sz=clamp(+TX.size|0||1,1,4),ww=TX.wrap&&a?Math.max(1,Math.floor(a.w/sz)):0;
+  const k=[f.name,f.w,f.h,TX.text,sp,lg,ww,sz].join('|');if(k!==tbKey){tbKey=k;tbVal=scaleBM(textBitmap(f,TX.text,ww,sp,lg),sz);}return tbVal;}
+function scaleBM(bm,s){if(!bm||s<2)return bm;const w=bm.w*s,h=bm.h*s,b=new Uint8Array(w*h);for(let y=0;y<h;y++)for(let x=0;x<w;x++)b[y*w+x]=bm.b[Math.floor(y/s)*bm.w+Math.floor(x/s)];return {w,h,b};}
 const txMap=v=>{if(v===TR)return TR;if(TX.col==='left')return V.c1;if(TX.col==='lr')return v===WHITE?V.c1:V.c2;return v;};
 function stampText(a,f,bm,x0,y0){for(let j=0;j<bm.h;j++)for(let i=0;i<bm.w;i++){const v=txMap(bm.b[j*bm.w+i]);if(v===TR&&bm.b[j*bm.w+i]===TR)continue;put(a,f,x0+i,y0+j,v);}}
 function renderFontUI(){
@@ -928,7 +930,7 @@ function renderFontUI(){
   const cnt=Object.keys(f.g).length;$('#txInfo').textContent=f.w+'×'+f.h+' px · '+(f.prop?'proportional':'fixed width')+' · characters '+f.first+'–'+f.last+' ('+cnt+' drawn)';
   $('#txSp').placeholder=String(f.spacing);$('#txLg').placeholder=String(f.gap);
 }
-function syncTxUI(){$('#txText').value=TX.text;$('#txSp').value=TX.sp;$('#txLg').value=TX.lg;$('#txCol').value=TX.col;$('#txWrap').checked=!!TX.wrap;renderFontUI();}
+function syncTxUI(){$('#txText').value=TX.text;$('#txSp').value=TX.sp;$('#txLg').value=TX.lg;$('#txCol').value=TX.col;$('#txWrap').checked=!!TX.wrap;$('#txSize').value=String(clamp(+TX.size|0||1,1,4));renderFontUI();}
 function addFontFile(file){
   const rd=new FileReader();rd.onload=()=>{let f=null;try{f=sanFont(JSON.parse(String(rd.result)));}catch(e){}
     if(!f||!Object.keys(f.g).length)return toast('That is not a font file from the Pixel Font Editor (.atmfont)');
@@ -940,7 +942,7 @@ function addFontFile(file){
 $('#txFont').onchange=()=>{TX.font=$('#txFont').value;saveTx();renderFontUI();renderCanvas();};
 $('#txText').oninput=()=>{TX.text=$('#txText').value;saveTx();renderCanvas();};
 $('#txSp').oninput=()=>{TX.sp=$('#txSp').value;saveTx();renderCanvas();};$('#txLg').oninput=()=>{TX.lg=$('#txLg').value;saveTx();renderCanvas();};
-$('#txCol').onchange=()=>{TX.col=$('#txCol').value;saveTx();renderCanvas();};$('#txWrap').onchange=()=>{TX.wrap=$('#txWrap').checked;saveTx();renderCanvas();};
+$('#txSize').onchange=()=>{TX.size=+$('#txSize').value;saveTx();renderCanvas();};$('#txCol').onchange=()=>{TX.col=$('#txCol').value;saveTx();renderCanvas();};$('#txWrap').onchange=()=>{TX.wrap=$('#txWrap').checked;saveTx();renderCanvas();};
 $('#txAdd').onclick=()=>$('#fileFont').click();$('#fileFont').onchange=e=>{[...e.target.files].forEach(addFontFile);e.target.value='';};
 $('#txDel').onclick=()=>{const f=curFont();if(f.builtin)return;userFonts=userFonts.filter(u=>u!==f);saveFonts();TX.font=builtinFonts[0].name;saveTx();renderFontUI();renderCanvas();toast('Font removed');};
 syncTxUI();
